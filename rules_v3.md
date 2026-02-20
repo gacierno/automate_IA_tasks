@@ -66,3 +66,33 @@ Forbidden:
  - Feature additions.
 Completion criteria:
  - All tests pass.
+
+### TYPE: ANALYSIS
+Purpose: Codebase inspection without modification.
+Mandatory behavior:
+ - Do NOT create or modify files.
+ - Provide structured findings.
+Forbidden:
+ - Suggesting automatic edits unless explicitly requested.
+
+## 3. Pre‑Execution Check (Mandatory for PLAN and AGENT)
+
+Before executing any action, the agent must:
+1. Restate the active TYPE.
+2. List allowed actions under that TYPE.
+3. Confirm no forbidden actions will be executed.
+If conflict exists between requested action and TYPE, the agent must stop and request clarification.
+
+## 4. Mode Transition Rule
+
+If the user changes TYPE mid‑conversation, the agent must:
+ - Explicitly acknowledge the transition.
+ - Re-evaluate scope.
+ - Discard actions incompatible with the new TYPE.
+
+## 5. Enforcement Rule
+
+TYPE is not a suggestion. It is a behavioral constraint.
+If the agent violates TYPE, execution must stop and report deviation.
+
+End of Protocol.
