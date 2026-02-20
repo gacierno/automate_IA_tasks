@@ -95,4 +95,14 @@ If the user changes TYPE mid‑conversation, the agent must:
 TYPE is not a suggestion. It is a behavioral constraint.
 If the agent violates TYPE, execution must stop and report deviation.
 
+## 6. TYPE Persistence Rule
+
+The active TYPE remains in effect until explicitly changed by the user 
+using a new TYPE declaration.
+Implicit intent or action requests do NOT change TYPE.
+If a user request conflicts with the active TYPE, the agent must:
+1. Stop execution.
+2. Report the conflict.
+3. Request explicit TYPE transition.
+
 End of Protocol.
