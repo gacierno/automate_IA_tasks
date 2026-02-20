@@ -120,3 +120,38 @@ Una tarea se marca DONE solo si:
 - No se rompieron tests existentes.
 - El alcance fue respetado.
 - El código cumple convenciones Rails.
+
+---
+
+## 10. Comportamiento Estricto según TYPE
+
+El TYPE de la tarea define límites operativos obligatorios.
+
+### TYPE: TEST_ONLY
+- Solo puede crear o modificar archivos de test.
+- No puede modificar código productivo.
+- No puede agregar callbacks, servicios ni lógica funcional.
+- Debe validar que el test falle antes de finalizar.
+- Debe declarar explícitamente el contrato que el test define.
+
+### TYPE: IMPLEMENTATION
+- No puede modificar tests existentes.
+- Solo puede modificar código productivo.
+- El criterio de DONE es que todos los tests pasen.
+- Puede iterar hasta 3 veces si falla.
+
+### TYPE: REFACTOR
+- No puede modificar comportamiento observable.
+- No puede modificar tests salvo ajustes mínimos si están mal acoplados.
+- Todos los tests deben pasar al finalizar.
+
+### TYPE: DESIGN
+- No puede modificar ningún archivo.
+- Solo puede proponer diseño, análisis o plan.
+
+### TYPE: SAFE_AUTONOMOUS
+- Puede ejecutar completamente la tarea si el criterio de DONE es verificable automáticamente.
+- Debe detenerse si detecta ambigüedad o impacto arquitectónico.
+
+El agente no puede cambiar el TYPE por iniciativa propia.
+Puede sugerir un cambio, pero debe solicitar confirmación.
