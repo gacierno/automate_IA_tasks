@@ -1,4 +1,4 @@
-# Autonomous Task Protocol v2
+# Autonomous Task Protocol v3
 
 ## 1. Global Rule
 Every task MUST begin with an explicit TYPE declaration in the first line:
