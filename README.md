@@ -1,6 +1,7 @@
 # automate_IA_tasks
 A way to automate task completion without Assistants, just an agent with a cheap model
-
+---
+V3: Added a new rule file to enforce a pre-execution protocol to prevent undesired code generation and ambiguous intent.
 ---
 
 Cómo decidir el TYPE correctamente
