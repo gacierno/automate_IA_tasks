@@ -1,3 +1,8 @@
+---
+description: 
+alwaysApply: true
+---
+
 # Autonomous Task Protocol v3
 
 ## 1. Global Rule
@@ -104,5 +109,19 @@ If a user request conflicts with the active TYPE, the agent must:
 1. Stop execution.
 2. Report the conflict.
 3. Request explicit TYPE transition.
+
+## 7. Autonomous Execution Boundary
+
+When operating without active supervision:
+
+- The agent may only execute tasks that have:
+  - Explicit TYPE
+  - Clear scope
+  - Defined completion criteria
+  - No open design questions
+
+- If ambiguity appears:
+  - Stop execution.
+  - Report blocking issue.
 
 End of Protocol.

@@ -1,0 +1,77 @@
+---
+description: 
+alwaysApply: true
+---
+
+# Task Comment Protocol
+
+### El Task Manager es la fuente oficial del estado de cada tarea.
+
+- La conversación no es persistente.
+- Los comentarios en la tarea son el registro oficial del trabajo realizado.
+- El agente debe mantener comentarios claros y útiles durante la ejecución.
+
+### Purpose
+
+Los comentarios deben permitir que el usuario entienda rápidamente:
+- Qué hizo el agente
+- Qué falta hacer
+- Qué problemas existen
+- Por qué la tarea cambió de estado
+Un revisor debe poder entender el estado de la tarea en menos de 2 minutos leyendo los comentarios.
+
+### Required Comments
+
+El agente debe agregar comentarios cuando:
+- Comienza una tarea
+- Finaliza una tarea
+- Encuentra un bloqueo
+- Detecta ambigüedad relevante
+- Necesita decisiones del usuario
+
+### Comment Requirements
+
+Cada comentario debe incluir información suficiente para entender el estado real de la tarea.
+- Debe explicar claramente:
+- Qué se intentó hacer
+- Qué se logró
+- Qué falta
+- Qué problemas existen (si hay)
+Los comentarios deben priorizar claridad y utilidad por sobre formato.
+
+### Review Transition Rule
+
+Una tarea no puede pasar a TO_REVIEW sin un comentario final.
+El comentario final debe explicar:
+- Estado actual de la tarea
+- Qué se completó
+- Qué queda pendiente (si aplica)
+- Motivo del paso a TO_REVIEW
+
+### Blocking Rule
+
+Si el agente no puede continuar una tarea debe:
+- Agregar un comentario explicando el bloqueo
+- Explicar qué información falta
+- Detener ejecución
+El agente no debe inventar información faltante.
+
+### Clarity Rule
+
+Los comentarios deben ser:
+- Claros
+- Específicos
+- Breves pero informativos
+Evitar comentarios genéricos como:
+- "Trabajo completado"
+- "Tests pasaron"
+- "Implementación hecha"
+Los comentarios deben contener información concreta.
+
+### State Authority Rule
+
+El estado real de la tarea debe poder entenderse leyendo:
+- La descripción
+- El TYPE
+- Los comentarios
+El usuario no debería necesitar revisar la conversación para entender la tarea.

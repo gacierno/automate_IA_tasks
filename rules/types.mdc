@@ -1,0 +1,186 @@
+---
+description: 
+alwaysApply: true
+---
+
+# TYPE Completion Specification
+
+Cada tarea tiene un TYPE que define los permisos del agente.
+
+El TYPE determina:
+- Qué puede hacer el agente
+- Qué debe entregar
+- Cuándo la tarea está completa
+- Cuándo debe detenerse
+El TYPE es una restricción estricta de comportamiento.
+Si una acción requerida entra en conflicto con el TYPE:
+- El agente debe detenerse
+- Explicar el conflicto
+- No ejecutar cambios fuera del TYPE
+
+## TYPE: DESIGN
+
+### Allowed Actions
+- Analizar código existente
+- Leer documentación
+- Proponer soluciones
+- Identificar riesgos
+- Formular preguntas
+
+### Forbidden Actions
+- Crear tests
+- Modificar tests
+- Modificar código productivo
+- Ejecutar implementación
+
+### Deliverable Format
+Debe generar una especificación estructurada con estas secciones:
+- Problem → Descripción clara del problema
+- Current State → Cómo funciona actualmente el sistema
+- Proposed Solution → Solución propuesta
+- Assumptions → Supuestos explícitos
+- Edge Cases → Casos límite identificados
+- Open Questions → Preguntas pendientes
+- Acceptance Criteria → Condiciones que deberá cumplir la implementación
+
+### Completion Criteria
+La tarea se considera completa cuando:
+- El problema está claramente definido
+- La solución está especificada
+- Los supuestos están explícitos
+- Los edge cases están identificados
+- Los criterios de aceptación están definidos
+
+### Blocking Conditions
+Debe detenerse si:
+- Falta información del dominio
+- Existen decisiones de negocio sin definir
+- Hay múltiples soluciones posibles sin criterio
+- El alcance no está claro
+
+## TYPE: TEST_ONLY
+
+### Allowed Actions
+- Crear tests
+- Modificar tests
+- Ejecutar tests
+- Analizar resultados de tests
+
+### Forbidden Actions
+- Modificar código productivo
+- Crear migraciones
+- Cambiar modelos
+- Cambiar controladores
+- Cambiar servicios
+
+### Deliverable Format
+- Archivos de test creados o modificados
+- Tests claros y legibles
+- Tests describen comportamiento esperado
+
+### Completion Criteria
+La tarea se considera completa cuando:
+- Los tests compilan
+- Los tests describen claramente el comportamiento esperado
+- Los tests pueden fallar si la implementación no existe
+- No se modificó código productivo
+
+### Blocking Conditions
+Debe detenerse si:
+- El comportamiento esperado no está claro
+- Falta diseño
+- Existen ambigüedades en reglas de negocio
+
+## TYPE: IMPLEMENTATION
+
+### Allowed Actions
+- Modificar código productivo
+- Crear código nuevo
+- Ejecutar tests
+- Ajustar implementación
+
+### Forbidden Actions
+- Cambiar intención de los tests
+- Relajar expectativas de tests
+- Eliminar tests sin justificación explícita
+
+### Deliverable Format
+- Código funcional
+- Tests existentes pasando
+
+### Completion Criteria
+La tarea se considera completa cuando:
+- Todos los tests relevantes pasan
+- No se modificaron tests
+- No hay funcionalidades fuera de alcance
+- No quedan TODO críticos
+
+### Blocking Conditions
+Debe detenerse si:
+- Los tests son ambiguos
+- Los tests se contradicen
+- Falta información de diseño
+- Requiere decisiones no especificadas
+
+## TYPE: REFACTOR
+
+### Allowed Actions
+- Reorganizar código
+- Mejorar legibilidad
+- Simplificar estructura
+
+### Forbidden Actions
+- Cambiar comportamiento observable
+- Cambiar contratos externos
+
+### Deliverable Format
+- Código reorganizado
+- Tests pasando
+
+### Completion Criteria
+La tarea se considera completa cuando:
+- Tests pasan antes y después
+- No cambia comportamiento
+- No cambia API pública
+
+### Blocking Conditions
+Debe detenerse si:
+- El refactor requiere cambiar comportamiento
+- No hay tests suficientes
+
+## TYPE: ANALYSIS
+
+### Allowed Actions
+- Leer código
+- Analizar arquitectura
+- Detectar problemas
+
+### Forbidden Actions
+- Modificar código
+- Crear tests
+- Ejecutar implementación
+
+### Deliverable Format
+Reporte estructurado con:
+- Hallazgos
+- Riesgos
+- Mejoras sugeridas
+
+### Completion Criteria
+La tarea se considera completa cuando:
+- El análisis es claro
+- Los hallazgos son accionables
+- No se modificó código
+
+### Blocking Conditions
+Debe detenerse si:
+- Falta acceso a archivos
+- Falta información necesaria
+
+## TYPE Enforcement Rule
+El TYPE activo define los límites del agente.
+El agente:
+- Nunca debe cambiar el TYPE
+- Nunca debe asumir cambio de TYPE
+- Nunca debe ejecutar acciones fuera del TYPE
+El TYPE solo puede ser cambiado por el usuario.
