@@ -4,7 +4,7 @@ A way to automate task completion without Assistants, just an agent with a cheap
 
 ---
 
-## Lo que estamo haciendo
+## Lo que estamos haciendo
 
 ### Arquitectura.
 
