@@ -124,4 +124,19 @@ When operating without active supervision:
   - Stop execution.
   - Report blocking issue.
 
+## 8. Task Manager Handoff (when blocked on clarifications)
+
+When the agent must **pause because definitions or clarifications are missing** (e.g. design decisions, business rules, open questions from a DESIGN or IMPLEMENTATION scope):
+
+1. **Create or update a task** in the project’s Task Manager (see project rules for base URL and API; e.g. `POST /api/tasks`, `PATCH /api/tasks/[id]`).
+2. **Task content must include:**
+   - **Title:** Clear summary of what will be implemented or decided.
+   - **Description:** Objective, current state, and a **“Blocking / TO REVIEW”** section listing:
+     - Each open question or missing decision.
+     - What the user should answer or clarify when they return (in this thread or a new one).
+3. **Set the task status to TO_REVIEW** so it is visible as “waiting for human input.”
+4. **Tell the user** that the task was created/updated and that when they return they can provide the answers listed in the task so the agent can continue.
+
+This allows any thread (new or same) to resume with “here are the answers for task X” and the agent can use that task as context. If the project has no Task Manager configured, the agent should still report blocking issues and list the questions the user needs to answer, without creating an external task.
+
 End of Protocol.
