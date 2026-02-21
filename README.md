@@ -27,13 +27,18 @@ Un sistema con:
 ### Reglas
 
 El agente toma tareas en To Do.
+
 Ejecuta según TYPE.
+
 Llega hasta el límite permitido por el TYPE.
+
 Mueve la tarea a To Review.
 
 ### El humano decide entre:
 
 ✅ Pasar a Done
+
 🔁 Cambiar TYPE y volver a To Do
+
 ❓ Resolver ambigüedad y volver a To Do
 
